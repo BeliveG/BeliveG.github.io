@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/atom-one-dark.min.css">
+    <link rel="stylesheet" href="./css/d42ker-github.css">
+    <link rel="stylesheet" href="./css/highlight.min.css">
+    <link rel="stylesheet" href="./css/detail.css">
+    <script src="./js/jquery-3.6.1.min.js"></script>
+    <script src="./js/marked.min.js"></script>
+    <title>详情</title>
+</head>
+
+<body>
+
+    <div class="box"></div>
+    <script>
+        console.log(location.search);
+        let url = location.search.split("=")[1]
+        console.log(url);
+        $.ajax({
+            mthod: "GET",
+            url,
+            success(data) {
+                console.log(marked.marked(data));
+                $(".box").html(marked.marked(data))
+            }
+        })
+    </script>
+</body>
+
+</html>
